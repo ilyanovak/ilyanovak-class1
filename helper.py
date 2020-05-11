@@ -1,6 +1,7 @@
 import pandas as pd
 
-def SplitDate(df, column):
+def SplitDate(df, column):  # LR: - I liked how you passed a column param. This way regardles of the name of the column
+                            #you can pass it to your helper function and it will do the work. 
     '''
     Splits a datetime column into Year, Month, and Day columns
 
@@ -13,11 +14,11 @@ def SplitDate(df, column):
         Year, Month, and Day columns
     '''
     X = df.copy()
-    X[column] = pd.to_datetime(X[column])
+    X[column] = pd.to_datetime(X[column])  # LR: I suggest you add the "infer_datetime_format=True", I think this help to speed up or it is consider good practice 
     X['Year'] = X[column].dt.year
     X['Month'] = X[column].dt.month
     X['Day'] = X[column].dt.day
-    X = X.drop(columns=column)
+    X = X.drop(columns=column) 
     return X
 
 def ListToSeries(df, a_list):
