@@ -1,0 +1,4 @@
+# Some code to tell github to ignore (but NOT delete) new files which clutter up
+build/
+dist/
+*.egg-info
